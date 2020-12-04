@@ -27,15 +27,15 @@ require("./manifest")(client);
 
 
 //Fetch all command files
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-    client.commands.set(command.name, command);
-    console.log(`Registering command file: ${file}`.yellow, `\n    ${command.description}`);
-}
+// const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+// for (const file of commandFiles) {
+//     const command = require(`./commands/${file}`);
+//     client.commands.set(command.name, command);
+//     console.log(`Registering command file: ${file}`.yellow, `\n    ${command.description}`);
+// }
 
 module.exports = {
     client: client
 }
 
-client.login('')
+client.login('Nzg0MzUxNDYzMDE4ODU2NDQ4.X8oCOQ.XLYsV9ECGw7WvKPyo8ggj-UmMu8')
