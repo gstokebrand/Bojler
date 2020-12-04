@@ -38,4 +38,4 @@ module.exports = {
     client: client
 }
 
-client.login('Nzg0MzUxNDYzMDE4ODU2NDQ4.X8oCOQ.XLYsV9ECGw7WvKPyo8ggj-UmMu8')
+client.login('')
