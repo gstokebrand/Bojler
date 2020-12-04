@@ -13,6 +13,4 @@ module.exports = (client) => {
             console.log(`${i+1}: ${f} loaded!`);
         });
     });
-
-
 }

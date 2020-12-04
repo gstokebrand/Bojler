@@ -33,9 +33,32 @@ require("./manifest")(client);
 //     client.commands.set(command.name, command);
 //     console.log(`Registering command file: ${file}`.yellow, `\n    ${command.description}`);
 // }
+client.commands = new Discord.Collection();
+
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+for (const file of commandFiles) {
+    const command = require(`./commands/${file}`);
+    client.commands.set(command.name, command);
+    console.log(`Registering command file: ${file}\n    ${command.description}`);
+}
+
+prefix = '!';
+
+client.on('message', message => {
+    if (message.author.bot) return;
+    const args = message.content.slice(prefix.length).trim().split(/ +/);
+    const command = args.shift().toLowerCase();
+    if (!client.commands.has(command)) return;
+    try {
+        client.commands.get(command).execute(client, message, args);
+    } catch (error) {
+        console.error(error);
+        message.reply('there was an error trying to execute that command!');
+    }
+})
 
 module.exports = {
     client: client
 }
 
-client.login('')
+client.login('Nzg0MzUxNDYzMDE4ODU2NDQ4.X8oCOQ.NF1pDcWEbvrJ1srpymGK-54vfVw')
