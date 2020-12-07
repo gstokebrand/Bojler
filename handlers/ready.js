@@ -1,5 +1,5 @@
 const {client} = require('../index');
 
 client.on('ready', () => {
-    console.log('Ready!')
+    console.log(`\nBojler is ready at: ${client.user.tag}`);
 })
