@@ -15,6 +15,7 @@ for (const file of commandFiles) {
 console.log('\nCommands:');
 console.table(table);
 
+//TODO: move prefix to process.env or config file
 prefix = '.';
 
 
